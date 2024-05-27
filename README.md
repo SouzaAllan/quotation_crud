@@ -15,7 +15,7 @@
 * [João Vitor Cardoso da Silva](https://github.com/)
 * [Lucas da Rocha Conceição Drosdowski](https://github.com/)
 * [Marlon Bezerra Eloy dos Santos ](https://github.com/MarlonBES)
-* [Victor Moacir da Silva](https://github.com/)
+* [Victor Moacir da Silva](https://github.com/VictorMoacir17)
 * [Vinicius Camparini Siqueira](https://github.com/TiagoBSilvaUNI9)
 
 # Instrutor
