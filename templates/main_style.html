@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>House OF Quotation | A melhor plataforma de compra e venda de euro e dolar do Brasil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.freepik.com/512/925/925065.png">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K69WDD5N');
+        </script>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        transition: background 0.5s ease; 
+    }
+
+    body.dark {
+        background: black;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        width: 100vw;
+        height: 200vh;
+        background-color: #f5f5f5;
+    }
+
+    .message {
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 1rem;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    #myButton {
+    padding: 0.5rem 1rem;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+    #myButton:hover {
+        background-color: #7e0000;
+    }
+
+
+    .balances,
+    .exchange_rates,
+    .buttons {
+        margin: 1rem 0;
+    }
+
+    .balances,
+    .exchange_rates {
+        display: flex;
+        justify-content: space-between;
+        width: 80%;
+    }
+
+    .button {
+        padding: 0.5rem 1rem;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .button_ls {
+        padding: 0.5rem 1rem;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .button_ls:hover,
+    .button:hover {
+        background-color: #444;
+    }
+</style>
+</head>
+<body>
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K69WDD5N"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+        <!-- End Google Tag Manager (noscript) -->
+    <script>
+
+                // Function to get cookie value by name
+            function getCookie(name) {
+            var nameEQ = name + "=";
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0) == ' ') {
+                    cookie = cookie.substring(1, cookie.length);
+                }
+                if (cookie.indexOf(nameEQ) == 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return null;
+        }
+
+        // Get the value of the "uid" cookie
+        var uid = getCookie("uid");
+
+        // Display the value
+        if (uid) {
+            // Function to fetch data from the API
+            async function req() {
+                const link = "https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL";
+                try {
+                    const response = await fetch(link);
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching data:', error);
+                    return null;
+                }
+            }
+            
+
+            // Function to get the USD to BRL exchange rate
+            async function doll() {
+                const data = await req();
+                if (data) {
+                    const usdBrl = parseFloat(data.USDBRL.bid);
+                    var d = Math.round(usdBrl * 100) / 100;
+                    return d; // Round to 2 decimal places
+                }
+                return null;
+            }
+
+
+
+            // Function to get the EUR to BRL exchange rate
+            async function eur() {
+                const data = await req();
+                if (data) {
+                    const eurBrl = parseFloat(data.EURBRL.bid);
+                    return Math.round(eurBrl * 100) / 100; // Round to 2 decimal places
+                }
+                return null;
+            }
+
+
+            function setCookie(name, value, minutes) {
+                var expires = "";
+                if (minutes) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (minutes * 60 * 1000)); // Convert minutes to milliseconds
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }  
+                    // Function to be executed when the page loads
+            
+
+                doll().then(result => {
+                    setCookie('doll', result, 2);
+                    console.log(result);
+                // Output: 5.13
+                // Now you can use 'result' variable to access the value 5.13
+                    });
+                // Set a cookie named 'uid' with value '12345' and expires in 30 days
+                
+                eur().then(result => {
+                    setCookie('eur', result, 2);
+                    console.log(result);
+                // Output: 5.13
+                // Now you can use 'result' variable to access the value 5.13
+                    });
+                // Example: Retrieve and log the cookie value
+
+            
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({'event': 'pageview','pagetype': 'main','user_id':uid});
+
+
+                        
+
+            
+        } else {
+
+
+                window.location.href ="/vish"
+
+                
+
+        }
+
+    </script>
+
+    <div class="container">
+        
+            <button id="myButton">Sair</button>
+        
+    
+        <script>
+            // Define the function to be executed when the button is clicked
+            async function handleClick() {
+                function deleteCookie(name) {
+                    document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/';
+                }
+                deleteCookie("uid");
+                window.location.href = '/'
+                // You can replace the alert with any other function you want to execute
+            }
+    
+            // Get a reference to the button element
+            const button = document.getElementById('myButton');
+    
+            // Add event listener to the button element
+            button.addEventListener('click', handleClick);
+        </script>
+        <div class="message">
+            <h2 id = "greeting">Olá, </h2>
+            <script>
+                // Function to fetch data from the API
+                async function fetchData() {
+                    //mexer para consumir o cookie de user_id
+                    // URL of the API endpoint
+                    const apiUrl = '/user_data';
+
+                    function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+                    var userId = getCookie("uid");
+            
+                    try {
+                                                // Define headers
+                        const headers = {
+                            'Content-Type': 'application/json'
+                        };
+
+                        // Define the body of the POST request
+                        const body = JSON.stringify({ 'uid': userId});
+
+
+
+                        const response = await fetch(apiUrl, {
+                                            method: 'POST',
+                                            headers: headers,
+                                            body: body
+                                        });
+                        // Fetch data from the API
+                        
+                        const data = await response.json();
+                        
+                        // Access the value of the "nome" key
+                        const nome = data.nome;
+                        console.log(nome);
+            
+                        // Display the nome value in the greeting element
+                        document.getElementById('greeting').innerHTML += nome;
+                    } catch (error) {
+                        console.error('Error fetching data:', error);
+                    }
+                }
+            
+                // Call the fetchData function when the page loads
+                fetchData();
+            </script>
+            <p>Seus saldos atuais são:</p>
+            <div class="balances">
+                <span id = "currency">USD: </span> 
+                <span id = "doll"> </span><!-- consumir api financial -->
+                <span id="currency">EUR: </span>
+                <span id = "eur"> </span><!-- consumir api financial -->
+                <script>
+
+
+                async function fetchData() {
+                    //mexer para consumir o cookie de user_id
+                    // URL of the API endpoint
+                    function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+                    var userId = getCookie("uid");
+                    console.log(userId);
+
+                    const apiUrl = '/last_update';
+
+                    try {
+
+
+                        // Define headers
+                        const headers = {
+                            'Content-Type': 'application/json'
+                        };
+
+                        // Define the body of the POST request
+                        const body = JSON.stringify({ 'uid': userId});
+
+
+
+                        const response = await fetch(apiUrl, {
+                                            method: 'POST',
+                                            headers: headers,
+                                            body: body
+                                        });
+
+                        // Fetch data from the API
+
+                        const data = await response.json();
+                        console.log(data);
+                        
+
+                        if(data.currency=== null) {
+
+                            
+                            document.querySelector('#doll').innerHTML += '0.00';
+                            document.querySelector('#eur').innerHTML += '0.00';
+
+                            
+                        }
+                        else {
+
+
+                    async function wallet() {
+                    //mexer para consumir o cookie de user_id
+                    // URL of the API endpoint
+                    const apiUrl = '/econ_data';
+
+                    try {
+                        // Define headers
+                        const headers = {
+                            'Content-Type': 'application/json'
+                        };
+
+                        // Define the body of the POST request
+                        const body = JSON.stringify({ 'uid': userId});
+                        // Fetch data from the API
+                        const response = await fetch(apiUrl, {
+                                            method: 'POST',
+                                            headers: headers,
+                                            body: body
+                                        });
+                        const data = await response.json(); // verificar se tem saldo com base no user_id
+
+                        console.log(data.currency);
+                        
+                        // Access the value of the "nome" key
+                        const currency_a = data.currency_a;
+                        const doll = parseFloat( data.doll).toFixed(2);
+                        const currency_b = data.currency_b;
+                        const eur =parseFloat( data.eur).toFixed(2);
+                        console.log(currency_a + ' ' + doll+' ' + currency_b+' '+eur);
+                        return {currency_a,doll,currency_b,eur};
+
+                        
+                    } catch (error) {
+                        console.error('Error fetching data:', error);
+                    }
+                }
+                                    // Use the values returned by the wallet function
+                wallet().then(({ currency_a, doll, currency_b, eur }) => {
+                    console.log(doll);
+                    console.log(eur);
+
+                    document.querySelector('#doll').innerHTML += doll;
+                    document.querySelector('#eur').innerHTML += eur;
+
+                });
+
+
+
+
+                    }
+                    } catch (error) {
+                        console.error('Error fetching data:', error);
+                    }
+                }
+                window.onload = fetchData();
+
+
+                </script>
+            </div>
+            <p>As cotações atuais são:</p>
+            <div class="exchange_rates">
+                <span id="currency">USD: </span>
+                <span id="dolla"></span>
+                <span id="currency">EUR:</span>
+                <span id ="europ"></span>
+                <script>// Function to fetch data from the API
+                async function fetchData() {
+                        // Function to get cookie value by name
+                        function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+
+                    // Get the value of the "uid" cookie
+                    var doll = getCookie("doll");
+                    var eur = getCookie("eur");
+            
+                    try {
+
+                        document.getElementById('dolla').innerHTML += doll;
+                    } catch (error) {
+                        console.error('Error fetching data:', error);
+                    }
+
+                    try {
+
+                    document.getElementById('europ').innerHTML += eur;
+                    } catch (error) {
+                    console.error('Error fetching data:', error);
+                    }
+                }
+            
+                // Call the fetchData function when the page loads
+                window.onload = fetchData;
+            </script>
+            </div>
+            <div class="buttons">
+                <button class="button_ls"> </button>  <!-- consumir api last bought --> <!-- montar if no script se não tiver nenhuma compra retornar você não tem nenhuma compra-->
+                
+                <br>
+                <br>
+                <button class="button" onclick="window.location.href='/begin_checkout'">Realizar uma nova transação</button>
+            </div>
+            <script>
+                                // Function to fetch data from the API
+                async function fetchData() {
+                    //mexer para consumir o cookie de user_id
+                    // URL of the API endpoint
+                    function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+                    userId = getCookie("uid");
+                    const apiUrl = '/last_update';
+
+                    try {
+
+
+                        // Define headers
+                        const headers = {
+                            'Content-Type': 'application/json'
+                        };
+
+                        // Define the body of the POST request
+                        const body = JSON.stringify({ 'uid': userId});
+
+
+
+                        const response = await fetch(apiUrl, {
+                                            method: 'POST',
+                                            headers: headers,
+                                            body: body
+                                        });
+
+                        // Fetch data from the API
+
+                        const data = await response.json();
+
+                        if(data.currency=== null) {
+                            const currency = data.currency;
+                            const value = data.value;
+                            last_one = "Você ainda não possui transações, quer gerar uma ?";
+                            
+                            document.querySelector('.button_ls').innerHTML += last_one;
+                            return {currency,value};
+                            
+                        }
+                        else {
+                        console.log(data.currency);
+                        
+                        // Access the value of the "nome" key
+                        const currency = data.currency;
+                        const value = parseFloat(data.value);
+
+                        var last_one = 'Refazer a última transação de: ' +  currency + ' ' + parseFloat( value).toFixed(2);
+                        
+
+                        // Display the nome value in the greeting element
+                        document.querySelector('.button_ls').innerHTML += last_one ;
+
+                        return {currency,value};
+                    }
+                    } catch (error) {
+                        console.error('Error fetching data:', error);
+                    }
+                }
+                fetchData();
+                // Function to handle button_ls click event
+                document.querySelector('.button_ls').addEventListener('click', async function() {
+                    try {
+                                                // Call fetchData and handle the returned Promise
+                        fetchData().then(({ currency, value }) => {
+                            console.log(currency);
+                            // You can use currency and value here
+                            if(currency === null){
+                                window.location.href="/begin_checkout";
+
+                            }
+                            else {
+
+                                    
+
+
+
+
+
+
+                                                    // Retrieve form parameters
+                                        var moeda = currency;
+                                        var valor = value;
+
+                                        function setCookie(name, value, minutes) {
+                                            var expires = "";
+                                            if (minutes) {
+                                                var date = new Date();
+                                                date.setTime(date.getTime() + (minutes * 60 * 1000)); // Convert minutes to milliseconds
+                                                expires = "; expires=" + date.toUTCString();
+                                            }
+                                            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                                        } 
+                                        
+                                        setCookie('boght_value',valor,5);
+                                        setCookie('boght_currency',moeda,5);
+
+
+                                        function getCookie(name) {
+                                            var nameEQ = name + "=";
+                                            var cookies = document.cookie.split(';');
+                                            for (var i = 0; i < cookies.length; i++) {
+                                                var cookie = cookies[i];
+                                                while (cookie.charAt(0) == ' ') {
+                                                    cookie = cookie.substring(1, cookie.length);
+                                                }
+                                                if (cookie.indexOf(nameEQ) == 0) {
+                                                    return cookie.substring(nameEQ.length, cookie.length);
+                                                }
+                                            }
+                                            return null;
+                                        }
+
+
+                                        if(moeda==='USD'){
+
+
+                                        
+
+                                        // Get the value of the "uid" cookie
+                                        var dollar = getCookie("doll");  
+                                        var brl = parseFloat( valor * dollar ).toFixed(2);
+
+                                        setCookie('doll',dollar,5);
+                                        setCookie('brl',brl,5);
+
+                                        console.log(brl);
+                                        
+
+                                        window.dataLayer = window.dataLayer || [];
+                                        window.dataLayer.push(function() {
+                                                                        this.reset();
+                                                                        });
+
+                                        window.dataLayer.push({'event': 'begin_checkout', 
+                                        "currency": "BRL",
+                                        "value": parseFloat( String(brl).replace('-','')).toFixed(2),
+                                        "items": [
+                                            {
+                                            "item_name": moeda,
+                                            "quantity": 1
+                                            }
+                                        ]
+                                        }
+                                    );
+                                        
+                                        window.location.href="/checkout";
+
+
+                                        }
+                                        else if(moeda==='EUR'){
+
+
+                                        
+
+                                        // Get the value of the "uid" cookie
+                                        var eur = getCookie("eur");  
+                                        var brl = parseFloat( valor * eur ).toFixed(2);
+                                        setCookie('brl',brl,5);
+                                        setCookie('eur',eur,5);
+
+                                        console.log(brl);
+
+
+                                        window.dataLayer = window.dataLayer || [];
+                                        window.dataLayer.push(function() {
+                                                                        this.reset();
+                                                                        });
+
+                                        window.dataLayer.push({'event': 'begin_checkout', 
+                                        "currency": "BRL",
+                                        "value": parseFloat( String(brl).replace('-','')).toFixed(2),
+                                        "items": [
+                                            {
+                                            "item_name": moeda,
+                                            "quantity": 1
+                                            }
+                                        ]
+                                        }
+                                    );
+                                        
+                                        window.location.href="/checkout";
+
+
+                                        }
+
+
+
+
+
+
+
+
+
+                            }
+                        });
+                                                
+
+                    } catch (error) {
+                        console.error('Error fetching last bought data:', error);
+                        alert('Ocorreu um erro ao obter os dados da última compra.');
+                    }
+                });
+            </script> 
+        </div>
+    </div>
+</body>
+</html>

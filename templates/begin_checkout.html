@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>House OF Quotation | Faça sua Oferta !</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.freepik.com/512/925/925065.png">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K69WDD5N');
+        </script>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        main {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 90%;
+            max-width: 600px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        .produto {
+            margin-bottom: 20px;
+        }
+
+        .imagem {
+            background-color: #ddd;
+            height: 200px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .informacoes h2 {
+            margin: 0;
+            color: #333;
+        }
+
+        .informacoes p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .preco {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            padding: 0 5px;
+            color: #333;
+        }
+        .currency {
+            font-weight: bold; /* Make the text bold */
+
+        }
+        .doll_v {
+            margin-right: 20px; /* Add space between 5.15 and EUR: */
+        }
+
+        .oferta h2 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            color: #666;
+        }
+
+        input, select, button {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .navegacao {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .navegacao a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .navegacao a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K69WDD5N"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <main>
+        <h2>Faça sua Oferta</h2>
+        <section class="produto">
+
+            <div class="informacoes">
+                <div class="preco">
+                    <span class="currency">USD:</span>
+                    <span class="doll_v"></span>
+                    <span class="currency">EUR:</span>
+                    <span class="eur_2"></span>
+                </div>
+                <script>
+                                            // Function to get cookie value by name
+                        function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+
+                // Get the value of the "uid" cookie
+                var uid = getCookie("uid");
+                var doll_v = getCookie("doll");
+                var eur_v = getCookie("eur");
+            
+
+                if(uid&&doll_v&&eur_v){
+                    console.log(eur_v);
+                    document.querySelector('.doll_v').innerHTML += doll_v;
+                    document.querySelector('.eur_2').innerHTML += eur_v;
+
+                }
+                else {
+                    window.location.href="/principal"
+                }
+
+                </script>
+
+            </div>
+        </section>
+        <section class="oferta">
+            
+            <form action="/checkout" onsubmit="return handleSubmit()">
+                <label for="moeda">Moeda:</label>
+                <select id="moeda" name="moeda">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                </select>
+                <label for="valor">Valor:</label>
+                <input type="number" id="valor" name="valor" step="0.01">
+                <button type="submit">Ir para o pagamento</button>
+            </form>
+
+            <script>
+                function handleSubmit() {
+                    // Retrieve form parameters
+                    var moeda = document.getElementById('moeda').value;
+                    var valor = document.getElementById('valor').value;
+
+                    function setCookie(name, value, minutes) {
+                        var expires = "";
+                        if (minutes) {
+                            var date = new Date();
+                            date.setTime(date.getTime() + (minutes * 60 * 1000)); // Convert minutes to milliseconds
+                            expires = "; expires=" + date.toUTCString();
+                        }
+                        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                    } 
+                    
+                    setCookie('boght_value',valor,5);
+                    setCookie('boght_currency',moeda,5);
+
+
+                    function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+
+
+                    if(moeda==='USD'){
+
+
+                    
+
+                    // Get the value of the "uid" cookie
+                    var dollar = getCookie("doll");  
+                    var brl = parseFloat( valor * dollar ).toFixed(2);
+
+                    setCookie('doll',dollar,5);
+                    setCookie('brl',brl,5);
+
+                    console.log(brl);
+                    
+                    window.location.href="/checkout"
+
+
+                    }
+                    else if(moeda==='EUR'){
+
+
+                    
+
+                    // Get the value of the "uid" cookie
+                    var eur = getCookie("eur");  
+                    var brl = parseFloat( valor * eur ).toFixed(2);
+                    setCookie('brl',brl,5);
+                    setCookie('eur',eur,5);
+
+                    console.log(brl);
+                    
+                    window.location.href="/checkout"
+
+
+                    }
+            
+
+            
+                    // Return false to prevent the form from being submitted normally
+                    // You can perform any additional logic here before returning
+                    return false;
+                }
+            </script>
+        </section>
+        <section class="navegacao">
+            <a href="/principal">Voltar para a página inicial</a>
+        </section>
+    </main>
+</body>
+</html>

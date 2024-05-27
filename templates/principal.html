@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K69WDD5N');
+    </script>
+    <!-- End Google Tag Manager -->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    transition: background 0.5s ease; 
+}
+
+body.dark {
+    background: black;
+}
+
+
+.login h2 {
+    font-size: 2em;
+    color: black;
+}
+
+.login .inputBx {
+    position: relative;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.login .inputBx input {
+    width: 100%;
+    padding: 5px 10px;
+    background: transparent;
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 1.2em;
+    color: black;
+    box-shadow: none;
+    outline: none;
+}
+
+.login .inputBx input[type="submit"] {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #ff357a, #fff172);
+    background-size: 200% 200%;
+    animation: gradientAnimation 5s ease infinite;
+}
+
+.login .inputBx input::placeholder {
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.login .links {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.login .links a {
+    color: black;
+    text-decoration: none;
+}
+
+.dark .login {
+    color: white;
+    background-color: black;
+}
+
+.dark .login h2 {
+    color: white;
+}
+
+.dark .login .inputBx input {
+    color: white;
+    border-color: white;
+}
+
+.dark .login .inputBx input[type="submit"] {
+    background: linear-gradient(45deg, #c935ff, #fff172);
+}
+
+.dark .login .inputBx input::placeholder {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.dark .login .links a {
+    color: white;
+}
+
+.ring {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ring i {
+    position: absolute;
+    inset: 0;
+    border: 2px solid black;
+    transition: 0.5s;
+}
+
+.ring i:nth-child(1) {
+    border-radius: 38% 62% 63% 40% / 41% 70% 56% 59%;
+    animation: animate 6s linear infinite;
+}
+
+.ring i:nth-child(2) {
+    border-radius: 41% 44% 56% 59% / 38% 62% 63% 37%;
+    animation: animate 4s linear infinite;
+}
+
+.ring i:nth-child(3) {
+    border-radius: 81% 44% 56% 59% / 40% 62% 63% 37%;
+    animation: animate 10s linear infinite;
+}
+
+.ring:hover i {
+    border: 6px solid var(--clr);
+    filter: drop-shadow(0 0 20px var(--clr));
+}
+
+.dark .ring i {
+    border-color: white;
+}
+
+.dark .ring:hover i {
+    border-color: var(--clr); 
+    filter: drop-shadow(0 0 20px var(--clr));
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.label {
+    background-color: black;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: fixed;
+    height: 16px;
+    width: 50px;
+    transform: scale(1.5);
+    top: 20px;
+    right: 26px;
+}
+
+.label .ball {
+    background-color: white;
+    border-radius: 50px;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: 22px;
+    width: 22px;
+    transform: translateX(0px);
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
+}
+
+.checkbox:checked + .label .ball {
+    transform: translateX(33px);
+}
+
+.fa-moon {
+    color: yellow;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+
+    </style>
+
+    
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K69WDD5N"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({'event': 'pageview','pagetype': 'login'});
+    </script>
+    <div>
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label class="label" for="checkbox">
+
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+            <div class="ball"></div>
+
+        </label>
+    </div>
+
+
+
+    <div class="ring">
+        <i style="--clr:#5000b2;"></i>
+        <i style="--clr:#bb00dc;"></i>
+        <i style="--clr:#fefe00;"></i>
+
+        <div class="login">
+            <h2>Login</h2>
+            <form action="/process_login" method="post" class="inputBx">
+                <div class="inputBx">
+                    <input type="text" name="email" placeholder="E-mail">
+                </div>
+                <div class="inputBx">
+                    <input type="password" name= "senha"placeholder="Senha">
+                </div>
+                <div class="inputBx">
+                    <div class="inputBx">
+                        <input type="hidden" name="info" value="login">
+                        <input type="submit" value="Entrar" onclick="
+                        window.dataLayer = window.dataLayer || [];
+                        window.dataLayer.push(function() {
+                                                        this.reset();
+                                                        });
+                        dataLayer.push({'event': 'login','type': 'organic', 'pagetype': 'login'});">
+                    </div>
+                    
+                </div>
+            </form>
+            <!--<div>
+                <button onclick="window.location.href='tela_inicial.html'">Voltar para a página inicial</button>
+            </div>-->
+            <div class="links">
+                <a href="#">Recuperar Senha</a>
+                <a href="#">Já possui cadastro?</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+                const chk = document.getElementById('checkbox')
+
+        checkbox.addEventListener('change', ()=> {
+            document.body.classList.toggle('dark')
+        })
+
+
+    </script>
+    <script src="https://kit.fontawesome.com/998c60ef77.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+

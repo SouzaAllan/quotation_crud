@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>House OF Quotation | Checkout </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.freepik.com/512/925/925065.png">
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K69WDD5N');
+        </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center align content */
+        }
+
+        .currency{
+            font-weight: bold;
+            padding: 5px 5px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px; /* Add margin bottom */
+        }
+
+
+        button {
+            padding: 0.5rem 1rem;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #005700;
+        }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K69WDD5N"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+    <div class="container">
+        <p>Checkout</p>
+        <br>
+        <span class="currency"> Valor a receber: </span>
+        <span class="currency_info"></span>
+        <br> <!-- Add line break -->
+        <br> <!-- Add line break -->
+        <span class="currency">Valor a pagar: </span>
+        <span class="brl_info"></span>
+        <br> <!-- Add line break -->
+        <br> <!-- Add line break -->
+        <input type="text" id="card" placeholder="Insira o numero do cartão">
+        <br>
+        <input type="text" id="name_c" placeholder="Insira o nome impresso no cartao">
+        <br>
+        <input type="number" id="cvc" oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 3);" maxlength="3" placeholder="CVV"><input type="month" id="expiration" placeholder="Vencimento do Cartão">
+        <br> <!-- Add line break -->
+        <br> <!-- Add line break -->
+
+        <button onclick="sendMessage()">Comprar</button> <!-- Move button below input -->
+    </div>
+
+    <script>
+                        async function fetchData() {
+                        // Function to get cookie value by name
+                        function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+
+                    // Get the value of the "uid" cookie
+                    var bgtc = getCookie("boght_currency");
+                    var bgtv = getCookie("boght_value");
+                    var brl = getCookie("brl");
+                    var uid = getCookie("uid");
+
+                    if(uid&&brl){
+                        window.dataLayer = window.dataLayer || [];
+                        dataLayer.push({'event': 'pageview','pagetype': 'checkout'});
+
+            
+                    try {
+
+                        dolar_info = bgtc + ' '+ parseFloat( bgtv).toFixed(2);
+                        brl_info = 'BRL' + ' '+brl;
+                        console.log(dolar_info);
+                        console.log(brl_info);
+
+                        document.querySelector('.currency_info').innerHTML += dolar_info;
+                        document.querySelector('.brl_info').innerHTML += brl_info;
+
+                
+                    } catch (error) {
+                    console.error('Error fetching data:', error);
+                    }
+                }
+                else{
+                    window.location.href="/principal"
+                }
+                }
+            
+                // Call the fetchData function when the page loads
+                fetchData();
+
+        function sendMessage() {
+            //var inputText = document.getElementById("inputField");//chave pix
+
+
+            function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+
+                    // Get the value of the "uid" cookie
+                    var bgtc = getCookie("boght_currency");
+                    var bgtv = parseFloat( getCookie("boght_value")).toFixed(2);
+                    var uid = parseInt( getCookie("uid"));
+                    var qu = parseFloat( getCookie("doll")).toFixed(2); // quotation value doll
+                    var qe = parseFloat( getCookie("eur")).toFixed(2); // quotation value eur
+                    var brl = parseFloat( getCookie("brl")).toFixed(2);
+                    async function unq()
+                                                        {
+                                                            var now = new Date;
+                                                            return (now.getDate()+"_"+ (now.getMonth() + 1) +"_"+ now.getFullYear() +"_"+ now.getHours() + "_"+now.getMinutes() + "_"+  now.getSeconds() );
+                                                        }
+
+                    var tm = unq();
+
+                                async function insertData(apiUrl, userId,value,currency,quotation,unq) {
+                                    
+                                    try {
+                                        // Define headers
+                                        const headers = {
+                                            'Content-Type': 'application/json'
+                                        };
+
+                                        // Define the body of the POST request
+                                        const body = JSON.stringify({ 'uid': userId, 'value': value,'currency':bgtc,'quotation':quotation });
+                                        
+
+                                        // Fetch data from the API with headers and POST method
+                                        const response = await fetch(apiUrl, {
+                                            method: 'POST',
+                                            headers: headers,
+                                            body: body
+                                        });
+
+                                        // Check if the response is okay (status code 200-299)
+                                        if (!response.ok) {
+                                            throw new Error(`HTTP error! status: ${response.status}`);
+                                        }  
+
+                                        else if (response.ok){
+
+
+                                            window.dataLayer = window.dataLayer || [];
+                                        window.dataLayer.push(function() {
+                                                                        this.reset();
+                                                                        });
+
+                                        window.dataLayer.push({'event': 'purchase', 
+                                        "currency": "BRL",
+                                        "transaction_id" : unq,
+                                        "value":brl,
+                                        "items": [
+                                            {
+                                            "item_name": bgtc,
+                                            "quantity": 1
+                                            }
+                                        ]
+                                        }
+                                    );
+
+                                            alert(`Você comprou: ${bgtc} ${value}, estamos te redirecionando para a página principal !`);
+                                            
+
+
+                                            window.location.href = "/principal";
+
+                                        }
+
+                                        
+
+                                    } catch (error) {
+                                        console.error('Error fetching data:', error);
+                                    }
+                                }
+                                var dd="/transaction";
+                                insertData(dd,uid,bgtv,bgtc,qu,tm);
+
+
+
+                            
+
+
+
+
+                 
+
+                
+    
+
+            
+            
+            // You can perform further actions with the input text here
+            
+
+        }
+    </script>
+</body>
+</html>

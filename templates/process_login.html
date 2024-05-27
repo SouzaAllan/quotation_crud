@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sera que o cookie seta?</title>
+</head>
+<body>
+    <script>
+
+
+
+                     
+            var uid = "{{ uid }}";
+            
+            if (uid==='None' || uid === null||uid === ""){
+                window.location.href ="/vish"
+            }
+            else{
+            // Set cookie function
+            function setCookie(name, value, days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+            setCookie('uid',uid,30);
+            
+                
+             window.location.href ="/principal";
+            }
+                
+
+        
+
+    </script>
+
+
+
+
+
+</body>
+</html>

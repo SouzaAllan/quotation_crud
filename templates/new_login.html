@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House OF Quotation | Entre para a melhor site de compra e venda de euro e dolar do Brasil</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn-icons-png.freepik.com/512/925/925065.png">
+
+      <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-K69WDD5N');
+        </script>
+  <style>
+                                    * {
+                                margin: 0;
+                                padding: 0;
+                                box-sizing: border-box;
+                                font-family: 'Roboto', sans-serif;
+                                }
+
+                                .container {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                                background-color: #2b2d42;
+                                }
+
+                                .content {
+                                background-color: #ffffff;
+                                border-radius: 15px;
+                                width: 960px;
+                                height: 75%;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                position: relative;
+                                }
+
+                                .content::before {
+                                content: "";
+                                position: absolute;
+                                background-color: #8d99ae;
+                                width: 40%;
+                                height: 100%;
+                                border-radius: 15px 0px 0px 15px;
+                                color: #2b2d42;
+                                }
+
+                                .first-content {
+                                display: flex;
+                                }
+
+                                .first-content .second-colunn {
+                                z-index: 11;
+                                }
+
+                                .first-colunn {
+                                text-align: center;
+                                width: 40%;
+                                z-index: 10;
+                                }
+
+                                .tittle {
+                                font-size: 28px;
+                                font-weight: 700;
+                                text-transform: capitalize;
+                                color: #2b2d42;
+                                }
+
+                                .tittle-second {
+                                color: #2b2d42;
+                                }
+
+                                .description {
+                                font-size: 14px;
+                                color: #2b2d42;
+                                line-height: 22px;
+                                }
+
+                                .list-sm {
+                                display: flex;
+                                list-style-type: none;
+                                }
+
+                                .item-sm {
+                                border: 1px solid #8d99ae;
+                                border-radius: 50%;
+                                width: 35px;
+                                height: 35px;
+                                line-height: 35px;
+                                text-align: center;
+                                margin-left: 10px;
+                                margin-bottom: 10px;
+                                color: #8d99ae;
+                                transition: 0.5s;
+                                }
+
+
+                                .item-sm:hover {
+                                background-color: #fee440;
+                                color: #2b2d42;
+                                border: none;
+                                }
+
+                                .social-media {
+                                margin-top: 10px;
+                                }
+
+                                .item-sm:not(:first-child) {
+                                margin-left: 10px;
+                                }
+
+                                .form {
+                                padding-top: 15px;
+                                display: flex;
+                                flex-direction: column;
+                                width: 55%;
+                                }
+
+                                .form input {
+                                height: 45px;
+                                border: none;
+                                background-color: #edf2f4;
+                                width: 100%;
+                                }
+
+                                .label-input {
+                                background-color: #edf2f4;
+                                display: flex;
+                                align-items: center;
+                                margin-top: 10px;
+                                }
+
+                                .icon-modify {
+                                color: #8d99ae;
+                                padding: 0 10px;
+                                }
+
+                                .btn {
+                                border-radius: 5px;
+                                text-transform: capitalize;
+                                background-color: #2b2d42;
+                                color: #ffffff;
+                                font-size: 16px;
+                                font-weight: 500;
+                                margin: 15px 0px 0px;
+                                padding: 14px 60px;
+                                border: none;
+                                align-self: center;
+                                transition: 0.5s;
+                                }
+
+                                .btn:hover {
+                                background-color: #2b2d42;
+                                color: #fee440;
+                                }
+
+                                .btn-primary {
+                                background-color: #2b2d42;
+                                color: #ffffff;
+                                }
+
+                                .btn-primary:hover {
+                                background-color: #2b2d42;
+                                color: #fee440;
+                                }
+
+                                /* Second Content */
+
+                                .second-content {
+                                position: absolute;
+
+                                }
+
+                                .second-content .first-colunn {
+                                order: 2;
+                                z-index: -1;
+                                }
+
+                                .second-content .second-colunn {
+                                order: 1;
+                                z-index: -1;
+                                }
+
+                                .second-colunn {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                width: 60%;
+                                }
+
+                                .link-forget {
+                                margin-top: 20px;
+                                font-size: 12px;
+                                color: #8d99ae;
+                                align-self: center;
+                                }
+
+                                /* Transção em CSS */
+
+
+                                .sign-in-js .first-content .first-colunn {
+                                z-index: -1;
+                                
+                                }
+
+                                .sign-in-js .first-content .second-colunn {
+                                z-index: -1;
+                                position: relative;
+                                animation: deslocamentoE 1s;
+                                }
+
+                                .sign-in-js .second-content .first-colunn {
+                                z-index: 13;
+                                
+                                }
+
+                                .sign-in-js .second-content .second-colunn {
+                                z-index: 11;
+                                }
+
+                                .sign-in-js .content::before {
+                                left: 60%;
+                                border-radius: 0px 15px 15px 0px;
+                                animation: slidein 1.5s;
+                                z-index: 12;
+                                }
+
+                                .sign-up-js .content::before {
+                                animation: slideout 1.5s;
+                                z-index: 12;
+                                }
+
+                                .sign-up-js .second-content .first-colunn {
+                                z-index: -1;
+                                }
+
+                                .sign-up-js .second-content .second-colunn {
+                                z-index: -1;
+                                position: relative;
+                                animation: deslocamentoD 1s;
+                                }
+
+                                .sign-up-js .first-content .first-colunn {
+                                z-index: 13;
+                                }
+
+                                .sign-up-js .first-content .second-colunn {
+                                z-index: 11;
+                                }
+
+                                /* Animção CSS */
+
+                                /* Animção CSS */
+
+                                @keyframes deslocamentoE {
+                                from {
+                                    opacity: 1;
+                                    z-index: 12;
+                                }
+
+                                to {
+                                    opacity: 0;
+                                    z-index: -1;
+                                }
+                                }
+
+                                @keyframes deslocamentoD {
+                                from {
+                                    opacity: 0;
+                                    z-index: 12;
+                                }
+
+                                to {
+                                    opacity: 1;
+                                    z-index: -1;
+                                }
+                                }
+
+                                @keyframes slidein {
+                                0% {
+                                    left: 0;
+                                    width: 40%;
+                                    background-color: #8d99ae; /* Cor inicial durante a transição (claro) */
+                                }
+
+                                100% {
+                                    left: 60%;
+                                    width: 40%;
+                                    background-color: #2b2d42; /* Cor final durante a transição (escuro) */
+                                }
+                                }
+
+                                @keyframes slideout {
+                                0% {
+                                    left: 60%;
+                                    width: 40%;
+                                    background-color: #2b2d42; /* Cor inicial durante a transição (escuro) */
+                                }
+
+
+                                
+                                100% {
+                                    left: 0;
+                                    width: 40%;
+                                    background-color:#8d99ae; /* Cor final durante a transição (claro) */
+                                }
+                                }
+
+
+
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/2440d93ffd.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+        <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K69WDD5N"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            dataLayer.push({'event': 'pageview','pagetype': 'login'});
+        </script>
+
+  <div class="container">
+
+    <div class="content first-content sign-in-js"> <!-- Adicionei a classe "sign-in-js" aqui -->
+
+      <div class="first-colunn">
+
+        <h2 class="tittle">Bem-vindo de volta!</h2>
+
+        <p class="description">Para se manter conectado conosco,</p>
+
+        <p class="description">por favor faça login com suas informações pessoais.</p>
+
+        <button id="signin" class="btn btn-primary">entrar</button>
+
+      </div>
+
+      <div class="second-colunn">
+
+        <h2 class="tittle tittle-second">Criar conta</h2>
+
+        <div class="social-media">
+
+          <!-- <ul class="list-sm">
+
+            <li class="item-sm"><a href="#"></a><i class="fab fa-facebook-f icon-modify-sm"></i></li>
+
+            <li class="item-sm"><a href="#"></a><i class="fab fa-google-plus-g icon-modify-sm"></i></li>
+
+
+          </ul>-->
+
+        </div>
+
+        <p class="description">ou use seu e-mail para registro:</p>
+
+        <form action="/process_login" method="post"  class="form">
+
+          <label class="label-input" for="nome">
+            <i class="far fa-user icon-modify"></i>
+            <input id="nome" type="text" name="nome" placeholder="Nome">
+          </label>
+
+          <label class="label-input" for="email">
+            <i class="far fa-envelope icon-modify"></i>
+            <input id="email" type="email" name="email" placeholder="E-mail">
+          </label>
+
+          <label class="label-input" for="password">
+            <i class="fas fa-lock icon-modify"></i>
+            <input id="password" type="password" name="senha"placeholder="Senha">
+          </label>
+
+          <button class="btn">criar conta</button>
+          <input  type="hidden" value="cadastrar" name="info">
+
+        </form>
+      </div>
+
+    </div>
+
+    <div class="content second-content sign-up-js"> <!-- Adicionei a classe "sign-up-js" aqui -->
+
+      <div class="first-colunn">
+
+        <h2 class="tittle">Olá, amigo!</h2>
+
+        <p class="description">Insira seus detalhes pessoais</p>
+
+        <p class="description">e comece sua jornada conosco</p>
+
+        <button id="signup" class="btn btn-primary">criar conta</button>
+
+      </div>
+
+      <div class="second-colunn">
+
+        <h2 class="tittle">House of quotation</h2>
+
+        <div class="social-media">
+
+          <!--<ul class="list-sm">
+            <li class="item-sm"><a href="#"></a><i class="fab fa-facebook-f icon-modify-sm"></i></li>
+
+            <li class="item-sm"><a href="#"></a><i class="fab fa-google-plus-g icon-modify-sm"></i></li>
+
+
+          </ul>-->
+
+        </div>
+
+        <p class="description">ou use seu e-mail para registro:</p>
+
+        <form action="/process_login" method="post"  class="form">
+
+          <label class="label-input" for="email">
+            <i class="far fa-envelope icon-modify"></i>
+            <input id="email" type="email" name = "email" placeholder="E-mail">
+          </label>
+
+          <label class="label-input" for="password">
+            <i class="fas fa-lock icon-modify"></i>
+            <input id="password" type="password" name="senha" placeholder="Senha">
+          </label>
+
+
+
+          <button class="btn">entrar</button>
+          <input  type="hidden" value="login" name="info">
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <script>
+        var btnSignin = document.querySelector("#signin");
+        var btnSignup = document.querySelector("#signup");
+
+        var body = document.querySelector("body");
+
+        btnSignin.addEventListener("click", function () {
+            body.className = "sign-in-js";
+        });
+
+        btnSignup.addEventListener("click", function () {
+            body.className = "sign-up-js";
+        });
+  </script>
+</body>
+
+</html>

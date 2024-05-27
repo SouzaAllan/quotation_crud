@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOF | Checkout</title>
+</head>
+<body>
+    <div id="contentDiv"></div>
+    <script>
+                    function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+
+                    value = parseFloat( getCookie('boght_value')).toFixed(2);
+                    console.log(value);
+
+                    if(value === undefined || value === null){
+                        window.location.href = '/principal'
+                    }
+                    else if(value>0){
+                        window.location.href = '/checkout_compra';
+                    }
+
+                    else {
+                                            
+
+                    function setCookie(name, value, minutes) {
+                        var expires = "";
+                        if (minutes) {
+                            var date = new Date();
+                            date.setTime(date.getTime() + (minutes * 60 * 1000)); // Convert minutes to milliseconds
+                            expires = "; expires=" + date.toUTCString();
+                        }
+                        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+                    } 
+                    function getCookie(name) {
+                        var nameEQ = name + "=";
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i];
+                            while (cookie.charAt(0) == ' ') {
+                                cookie = cookie.substring(1, cookie.length);
+                            }
+                            if (cookie.indexOf(nameEQ) == 0) {
+                                return cookie.substring(nameEQ.length, cookie.length);
+                            }
+                        }
+                        return null;
+                    }
+                    var new_brl = parseFloat( String(getCookie('brl')).replace('-','')).toFixed(2);
+                    console.log(new_brl);
+
+                    
+                    setCookie('brl',new_brl,5);
+                        window.location.href = '/checkout_venda';
+                    }
+    </script>
+
+    
+</body>
+</html>
