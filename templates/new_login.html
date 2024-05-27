@@ -258,29 +258,17 @@
 
                                 /* Animção CSS */
 
-                                @keyframes deslocamentoE {
-                                from {
-                                    opacity: 1;
-                                    z-index: 12;
+                                .sign-in-js .content::before {
+                                  left: 60%;
+                                  border-radius: 0 15px 15px 0;
+                                  background-color:  #aa7131;
                                 }
 
-                                to {
-                                    opacity: 0;
-                                    z-index: -1;
-                                }
-                                }
-
-                                @keyframes deslocamentoD {
-                                from {
-                                    opacity: 0;
-                                    z-index: 12;
+                                .sign-up-js .content::before {
+                                  left: 0;
+                                  background-color: #8d99ae;
                                 }
 
-                                to {
-                                    opacity: 1;
-                                    z-index: -1;
-                                }
-                                }
 
                                 @keyframes slidein {
                                 0% {
@@ -292,7 +280,7 @@
                                 100% {
                                     left: 60%;
                                     width: 40%;
-                                    background-color: #2b2d42; /* Cor final durante a transição (escuro) */
+                                    background-color: #aa7131; /* Cor final durante a transição (escuro) */
                                 }
                                 }
 
