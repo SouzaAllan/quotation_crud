@@ -305,9 +305,9 @@ def transaction() :
 #     return render_template('login.html')
   
   
-@app.route('/aa', methods=['GET'])
-def aa():
-    return render_template('checkout.html')
+# @app.route('/aa', methods=['GET'])
+# def aa():
+#     return render_template('checkout.html')
 
 @app.route('/process_payment', methods=['POST'])
 def process_payment():
